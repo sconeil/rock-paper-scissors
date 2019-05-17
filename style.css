@@ -1,0 +1,8 @@
+#container{
+    font-family: sans-serif;
+}
+
+h2 {
+    display: inline-block;
+    padding-right: 10px;
+}

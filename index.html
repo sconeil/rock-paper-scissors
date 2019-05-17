@@ -1,72 +1,23 @@
 <!-- DOCTYPE HTML-->
-<script>
-function computerPlay(){
-    let rand = Math.random();
-    if(rand >= .66){
-        let result = "Scissors";
-        return result;
-    } else if(rand >= .33){
-        let result = "Paper";
-        return result;
-    } else if(rand >= 0){
-        let result = "Rock";
-        return result;
-    }
-}
+<html>
+<div id="container">
     
-function singleRound(comp, human){
-    let str = "";
-    
-    switch(human){
-        case "Rock":
-            (comp == "Rock") ? str ="Draw, Rock and Rock.":
-            (comp == "Paper") ? str ="You lose, Rock loses to Paper.":
-            (comp == "Scissors") ? str ="You win, Rock beats Scissors.":
-            console.log("ERROR");
-            return str;
-            break;
-        case "Paper":
-            (comp == "Rock") ? str ="You win, Paper beats Rock.":
-            (comp == "Paper") ? str ="Draw, Paper and Paper.":
-            (comp == "Scissors") ? str ="You lose, Paper loses to Scissors.":
-            console.log("ERROR");
-            return str;
-            break;
-        case "Scissors":
-            (comp == "Rock") ? str ="You lose, Scissors loses to Rock.":
-            (comp == "Paper") ? str ="You win, Scissors beats Paper.":
-            (comp == "Scissors") ? str ="Draw, Scissors and Scissors.":
-            console.log("ERROR");
-            return str;
-            break;
-    }
-}
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
 
-function game(){
-    let compWins = 0;
-    let humanWins = 0;
-    let winStr = "";
-    while(compWins < 5 && humanWins < 5){
-        let computerSelection = computerPlay();
-        let humanSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
-        humanSelection = humanSelection.charAt(0).toUpperCase() + humanSelection.slice(1); //fixing case
-        
-        winStr = singleRound(computerSelection, humanSelection);
-        if (winStr.search("win") != -1){
-            humanWins++;
-        } else if (winStr.search("lose") != -1){
-            compWins++;
-        }
-        console.log(winStr);
-    }
-    if (humanWins > compWins){
-        console.log("You win! The score was " + humanWins + " to " + compWins + ".")
-    } else{
-        console.log("You lose. The score was " + humanWins + " to " + compWins + ".")
-    }
-}
-    
-//main
-game();
-    
-</script>
+    <div id="results">
+        <h1>RESULTS</h1>
+        <h2>Player
+            <p id="playerscore">0</p>
+        </h2>
+        <h2>Computer
+            <p id="compscore">0</p>
+        </h2>
+        <div id="endmessage"></div>
+    </div>
+</div>
+
+    <script src = "script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</html>
